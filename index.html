@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+            <meta charset="UTF-8">
+            <title>Psychic Game</title>
+
+            <!-- HELP**adding the game.js file to my html as the directions suggested. working?-->
+            <script src="Assets/javascript/game.js"></script>
+    </head>
+<body>
+<h1>The Psychic Game</h1>
+<p>Guess what letter I am thinking</p>
+
+<!-- HELP** using the Javascript to load only once the html has, is it working??-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- i need to delete this stuff (above) for my assigntment but i couldnt get it to link otherwise-->
+
+<div id="wins">Wins:</div>
+<div id="losses">Losses:</div>
+<div id="guesses-left">Guesses left:</div>
+<div id="guesses">Guesses so far:</div>
+
+<script type="text/javascript">
+
+       //this is me setting a variable for all the letters the comp and user can click//
+     var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+     var wins= 0;
+     var losses=0;
+     var leftGuesses=9;
+     var guesses=0;
+
+      // this is me setting up our Javascript to start after the HTML has loaded//
+$(document).ready(function() {
+     
+    // this is me making an onkey for when the user presses a letter in the variable, also lower case//
+    document.onkeyup=function () {
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log ("userGuess" + userGuess);
+
+    // this is me making the computer choose a letter from the variable at random, lower case //
+    var compGuess = letters[Math.floor(Math.random()* letters.length)].toLowerCase();
+    console.log("compGuess" + compGuess);
+
+// this is me making an alert just to see if this stuff is actually working //
+// this is also saying if user guesses same as computer, alert you win//
+
+    
+    if (userGuess === compGuess){
+        alert("You win!"); 
+        wins++;
+        leftGuesses= 9;
+    }
+
+// if not, then wrong guess and make the losses and guesses variables go up by 1 //
+// then subtract 1 from the guesses left variable //
+    else {
+        alert("Wrong guess!"); 
+        losses++;
+        guesses++;
+        document.getElementById("losses").innerHTML= losses = losses + 1;   
+        document.getElementById("guesses").innerHTML= guesses = guesses + 1;
+        document.getElementById("Guesses-left").innerHTML= leftGuesses = leftGuesses - 1;
+    
+}
+    }
+})
+</script>
+</body>
+</html>
