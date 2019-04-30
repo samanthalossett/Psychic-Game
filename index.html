@@ -4,7 +4,7 @@
             <meta charset="UTF-8">
             <title>Psychic Game</title>
 
-            <!-- HELP**adding the game.js file to my html as the directions suggested. working?-->
+            <!-- **HELP**adding the game.js file to my html as the directions suggested. working?-->
             <script src="Assets/javascript/game.js"></script>
     </head>
 <body>
@@ -44,26 +44,24 @@ $(document).ready(function() {
 // this is me making an alert just to see if this stuff is actually working //
 // this is also saying if user guesses same as computer, alert you win//
 
-    
-    if (userGuess === compGuess){
+if (userGuess === compGuess){
         alert("You win!"); 
         wins++;
-        leftGuesses= 9;
+        guesses++;
     }
 
 // if not, then wrong guess and make the losses and guesses variables go up by 1 //
 // then subtract 1 from the guesses left variable //
     else {
-        alert("Wrong guess!"); 
-        losses++;
-        guesses++;
+        alert("Wrong guess!");  //i only put these alerts here to see if part of the code is working //
+        ;
         document.getElementById("losses").innerHTML= losses = losses + 1;   
         document.getElementById("guesses").innerHTML= guesses = guesses + 1;
-        document.getElementById("Guesses-left").innerHTML= leftGuesses = leftGuesses - 1;
-    
-}
+        document.getElementById("Guesses-left").innerHTML= leftGuesses = leftGuesses - 1; // this code isnt working-why?//
+    }
     }
 })
+// overall, i am struggeling with javascript. any additional notes would be helpful //
 </script>
 </body>
 </html>
